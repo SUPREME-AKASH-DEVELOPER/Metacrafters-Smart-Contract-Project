@@ -1,60 +1,53 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract SimpleBank {
+contract SimpleVoting {
     address public owner;
-    mapping(address => uint) private balances;
-    uint public withdrawalLimit;
+    uint public proposalCount;
 
-    event Deposit(address indexed user, uint amount);
-    event Withdrawal(address indexed user, uint amount);
-    event LimitChanged(uint newLimit);
+    struct Proposal {
+        uint id;
+        string description;
+        uint voteCount;
+    }
+
+    mapping(uint => Proposal) public proposals;
+    mapping(address => mapping(uint => bool)) public votes;
+
+    event ProposalCreated(uint indexed id, string description);
+    event Voted(uint indexed proposalId, address indexed voter);
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Only owner can call this function");
+        _;
+    }
 
     constructor() {
         owner = msg.sender;
-        withdrawalLimit = 1 ether;
     }
 
-    // Deposit function
-    function deposit() public payable {
-        require(msg.value > 0, "Deposit amount must be greater than zero");
-        balances[msg.sender] += msg.value;
-        emit Deposit(msg.sender, msg.value);
+    // Function to create a new proposal
+    function createProposal(string memory description) public onlyOwner {
+        proposalCount++;
+        proposals[proposalCount] = Proposal(proposalCount, description, 0);
+        emit ProposalCreated(proposalCount, description);
     }
 
-    // Withdraw function
-    function withdraw(uint amount) public {
-        require(amount > 0, "Withdrawal amount must be greater than zero");
-        require(amount <= balances[msg.sender], "Insufficient balance");
-        require(amount <= withdrawalLimit, "Amount exceeds withdrawal limit");
+    // Function to vote on a proposal
+    function vote(uint proposalId) public {
+        require(proposalId > 0 && proposalId <= proposalCount, "Proposal does not exist");
+        require(!votes[msg.sender][proposalId], "You have already voted for this proposal");
 
-        balances[msg.sender] -= amount;
-        payable(msg.sender).transfer(amount);
-        emit Withdrawal(msg.sender, amount);
+        votes[msg.sender][proposalId] = true;
+        proposals[proposalId].voteCount++;
+        emit Voted(proposalId, msg.sender);
     }
 
-    // Set withdrawal limit function, only owner can call
-    function setWithdrawalLimit(uint newLimit) public {
-        require(msg.sender == owner, "Only owner can set the withdrawal limit");
+    // Function to get proposal details
+    function getProposal(uint proposalId) public view returns (uint, string memory, uint) {
+        require(proposalId > 0 && proposalId <= proposalCount, "Proposal does not exist");
 
-        withdrawalLimit = newLimit;
-        emit LimitChanged(newLimit);
-    }
-
-    // Function to check balance
-    function getBalance() public view returns (uint) {
-        return balances[msg.sender];
-    }
-
-    // Function to simulate an error and test assert()
-    function testAssert() public view {
-        // Assert that the contract owner is not the zero address (should never fail)
-        assert(owner != address(0));
-    }
-
-    // Function to demonstrate revert
-    function demoRevert() public pure {
-        // Always revert with a custom error message
-        revert("This function always reverts");
+        Proposal memory proposal = proposals[proposalId];
+        return (proposal.id, proposal.description, proposal.voteCount);
     }
 }

@@ -1,41 +1,36 @@
 # Smart-Contract-Project
 
-# SimpleBank Smart Contract
+# SimpleVoting Smart Contract
 
-SimpleBank is a basic Ethereum smart contract that acts as a simple bank account on the blockchain. It allows users to deposit and withdraw Ether, and the contract owner can set a withdrawal limit.
+The `SimpleVoting` smart contract allows users to create and vote on proposals.
 
-## Functions
+## Features
 
-- **Deposit**: Users can deposit Ether into their account.
-- **Withdraw**: Users can withdraw Ether from their account, respecting their balance and withdrawal limit.
-- **Set Withdrawal Limit**: Contract owner can set a maximum withdrawal limit.
+- Proposal creation by the contract owner.
+- Voting on proposals by users.
+- Retrieving proposal details.
 
-## Key Concepts
+## Getting Started
 
-- **require()**: Checks conditions before allowing a transaction.
-- **assert()**: Ensures critical conditions are always true.
-- **revert()**: Cancels a transaction with a custom message.
+### Installation
 
-## How to Run
+1. **Clone the repository:**
 
-### Using Remix IDE:
+    ```sh
+    git clone https://github.com/yourusername/SimpleVoting.git
+    cd SimpleVoting
+    ```
 
-1. Open Remix IDE: Go to [Remix IDE](https://remix.ethereum.org).
-2. Create New File: Name it `SimpleBank.sol` and paste the contract code.
-3. Compile & Deploy: Use JavaScript VM (Cancun) environment.
-4. Interact: Deposit, withdraw, set limits, and check balance.
+2. **Install dependencies:**
 
-## Smart Contract Code
+    ```sh
+    npm install
+    ```
 
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+### Deployment
 
-contract SimpleBank {
-    // Contract variables and functions
-    // Insert the contract code here
+#### Using Truffle
 
-    // Contact author's email: akashlakhwan2329@gmail.com
-}
-# Conclusion
-This project demonstrates how to handle conditions and errors in Solidity smart contracts using require(), assert(), and revert(). By implementing these functions, we ensure our contract operates securely and predictably.
+```sh
+truffle compile
+truffle migrate

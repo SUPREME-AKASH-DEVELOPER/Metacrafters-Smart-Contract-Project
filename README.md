@@ -1,4 +1,4 @@
-# Smart-Contract-Project
+# Smart-Contract-Project (for my metaceafters assignment of Functions and Errors - ETH + AVAX)
 
 # SimpleVoting Smart Contract
 

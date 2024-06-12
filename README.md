@@ -34,3 +34,10 @@ The `SimpleVoting` smart contract allows users to create and vote on proposals.
 ```sh
 truffle compile
 truffle migrate
+
+Using Hardhat
+npx hardhat compile
+npx hardhat run scripts/deploy.js
+
+MIT License.
+This version is very concise, providing just the necessary information to understand and deploy the contract.

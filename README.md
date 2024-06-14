@@ -1,72 +1,47 @@
 # Smart-Contract-Project (for my metaceafters assignment of Functions and Errors - ETH + AVAX)
 
-Here's the updated README file for the `ValueHandler` smart contract, incorporating the detailed description you provided:
 
-```markdown
-# ValueHandler Smart Contract
 
-## Description
+Sure, here's a condensed version:
 
-The `ValueHandler` smart contract is a Solidity-based contract designed to demonstrate the use of input validation and error handling in Ethereum smart contracts using the `require()`, `assert()`, and `revert()` statements. This project ensures robust value management and safe arithmetic operations, adhering to best practices in Solidity programming.
+---
 
-## Features
+# Smart Contract Project
 
-### updateValue Function
+This project implements a simple Solidity smart contract showcasing the usage of `require()`, `assert()`, and `revert()` statements.
 
-**Purpose**: Sets a new value for the contract.
+## Overview
 
-**Input Validation**:
-- Ensures the new value `newValue` is greater than zero using the `require()` statement.
-- Ensures the new value is different from the existing value using the `assert()` statement.
-
-**Events**:
-- Emits a `ValueUpdated` event upon successful update of the value.
-
-### divide Function
-
-**Purpose**: Performs division of two numbers and returns the result.
-
-**Input Validation**:
-- Ensures the `denominator` is non-zero using the `require()` statement.
-- Uses the `revert()` statement to provide a specific error message if the `numerator` is not divisible by the `denominator`.
-
-### getCurrentValue Function
-
-**Purpose**: Retrieves the current value stored in the contract.
+The `ValueHandler` contract allows:
+- Updating a stored value with validation.
+- Performing division with input checks.
+- Retrieving the current stored value.
 
 ## Usage
 
-### Deploy the Contract:
+1. **updateValue(uint256 newValue)**:
+   - Updates the stored value.
+   - Uses `require()` to ensure `newValue` is positive.
+   - Uses `assert()` to ensure the new value is different from the current value.
 
-Deploy the `ValueHandler` contract to an Ethereum network.
+2. **divide(uint256 numerator, uint256 denominator)**:
+   - Returns the result of division.
+   - Uses `require()` to ensure `denominator` is not zero.
+   - Uses `revert()` if `numerator` is not evenly divisible by `denominator`.
 
-### Set a Value:
+3. **getCurrentValue()**:
+   - Retrieves the current stored value.
 
-Call the `updateValue` function with a positive integer to set a new value.
+## How to Use
 
-### Perform Division:
+1. Clone the repository.
+2. Deploy the contract.
+3. Interact with the contract using a web3 provider like MetaMask.
 
-Call the `divide` function with two integers where the denominator is non-zero. The function will return the result if the division is exact, otherwise, it will revert with an error message.
+## License
 
-### Get Current Value:
+This project is licensed under the MIT License.
 
-Call the `getCurrentValue` function to retrieve the current value stored in the contract.
+---
 
-## Example
-
-```solidity
-// Set a new value
-valueHandler.updateValue(10);
-
-// Perform division
-uint256 result = valueHandler.divide(20, 2); // Returns 10
-
-// Get the current value
-uint256 currentValue = valueHandler.getCurrentValue(); // Returns 10
-```
-
-## Error Handling
-
-- **require()**: Used to check conditions that must be met before executing the function logic, preventing the function from proceeding if the condition is not met.
-- **assert()**: Used to check for conditions that should always be true and indicates a serious error if the condition is not met.
-- **revert()**: Used to provide specific error messages and revert the transaction if certain conditions are not met during execution.
+Feel free to add more details or customize it further based on your preferences!

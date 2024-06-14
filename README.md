@@ -44,4 +44,3 @@ This project is licensed under the MIT License.
 
 ---
 
-Feel free to add more details or customize it further based on your preferences!

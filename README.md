@@ -43,7 +43,6 @@ Integrate the contract into your decentralized application (DApp) or project.
 
 ---
 
-Feel free to use this text directly in your GitHub README!
 4. Deploy the compiled contract to your preferred Ethereum development environment or testnet.
 
 ## Contract Details

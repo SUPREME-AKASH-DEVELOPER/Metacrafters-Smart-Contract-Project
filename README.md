@@ -22,24 +22,28 @@ This Solidity smart contract implements a simple grading system where you can ad
 
 ## Usage
 
-1. Clone the repository:
+## Compile the contract:
 
-```bash
-git clone <repository_url>
-```
+Compile the Solidity contract using a Solidity compiler version ^0.8.10.
 
-2. Navigate to the directory:
+## Deploy the contract:
 
-```bash
-cd <repository_directory>
-```
+Deploy the compiled contract to your Ethereum development environment or testnet.
 
-3. Compile the contract using Solidity compiler:
+## Interact with the contract:
 
-```bash
-solc --abi --bin <contract_file.sol>
-```
+- Use `addStudent` to add a new student.
+- Use `addGrade` to add a grade for a student.
+- Use `updateGrade` to update a grade for a student.
+- Use `getStudent` to retrieve student information.
 
+## Integrate into your project:
+
+Integrate the contract into your decentralized application (DApp) or project.
+
+---
+
+Feel free to use this text directly in your GitHub README!
 4. Deploy the compiled contract to your preferred Ethereum development environment or testnet.
 
 ## Contract Details

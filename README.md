@@ -22,26 +22,26 @@ This Solidity smart contract implements a simple grading system where you can ad
 
 ## Usage
 
-## Compile the contract:
+Follow these steps to use the Grading System Smart Contract:
+
+### Compile the contract:
 
 Compile the Solidity contract using a Solidity compiler version ^0.8.10.
 
-## Deploy the contract:
+### Deploy the contract:
 
 Deploy the compiled contract to your Ethereum development environment or testnet.
 
-## Interact with the contract:
+### Interact with the contract:
 
 - Use `addStudent` to add a new student.
 - Use `addGrade` to add a grade for a student.
 - Use `updateGrade` to update a grade for a student.
 - Use `getStudent` to retrieve student information.
 
-## Integrate into your project:
+### Integrate into your project:
 
 Integrate the contract into your decentralized application (DApp) or project.
-
----
 
 4. Deploy the compiled contract to your preferred Ethereum development environment or testnet.
 

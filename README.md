@@ -70,7 +70,8 @@ Integrate the contract into your decentralized application (DApp) or project.
 
 ## License
 
-This project is licensed under the terms of the MIT license. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the terms of the MIT license. 
+https://www.loom.com/share/fd48a1d901fc4042b75643bb3e07c2ea
 
 ---
 
